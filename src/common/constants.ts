@@ -64,7 +64,8 @@ export const LANGUAGES2 = {
   br: 'Português Brasileiro',
   it: 'Italiano',
   ko: '한국어',
-};
+  nl: 'Nederlands',
+} as const;
 
 export const LANGUAGES = [
   {'id': 'en', 'title': 'English'},
@@ -77,7 +78,8 @@ export const LANGUAGES = [
   {'id': 'br', 'title': 'Português Brasileiro'},
   {'id': 'it', 'title': 'Italiano'},
   {'id': 'ko', 'title': '한국어'},
-];
+  {'id': 'nl', 'title': 'Nederlands'},
+] as const;
 
 export const APP_NAME = 'Terraforming Mars';
 export const DISCORD_INVITE = 'https://discord.gg/afeyggbN6Y';
