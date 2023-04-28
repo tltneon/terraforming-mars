@@ -131,7 +131,7 @@ export function translateTextNode(el: HTMLElement) {
   translateChildren(el);
 }
 
-export const $t = function(msg: string | Message | number | undefined) {
+export const $t = function(msg: string | Message | number | undefined): string {
   if (!msg) return '';
   if (typeof msg === 'number') return msg.toString();
   if (typeof msg === 'string') return translateText(msg);

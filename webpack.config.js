@@ -51,6 +51,7 @@ module.exports = {
     extensions: ['.ts', '.vue', '.js'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      'vue': '@vue/compat',
     },
     fallback: {
       util: false,
@@ -61,6 +62,13 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            compatConfig: {
+              MODE: 2,
+            },
+          },
+        },
       },
       {
         test: /\.tsx?$/,

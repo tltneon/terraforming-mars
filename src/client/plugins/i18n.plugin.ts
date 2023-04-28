@@ -1,19 +1,22 @@
-import _Vue from 'vue';
+import {App} from 'vue';
 import {translateTextNode, $t} from '@/client/directives/i18n';
 
-declare module 'vue/types/vue' {
-  interface Vue {
+export default {
+  install: (app: App) => {
+    app.directive('i18n', {
+      mounted: translateTextNode,
+      updated: translateTextNode,
+    });
+    app.config.globalProperties.$t = $t;
+  },
+};
+
+declare module '@vue/runtime-core' {
+  // Bind to `this` keyword
+  interface ComponentCustomProperties {
     $t: typeof $t;
   }
 }
 
-export default {
-  install: (Vue: typeof _Vue) => {
-    Vue.prototype.$t = $t;
-
-    Vue.directive('i18n', {
-      inserted: translateTextNode,
-      componentUpdated: translateTextNode,
-    });
-  },
-};
+// Notes on upgrading from Vue 2:
+// https://stackoverflow.com/questions/64118679/question-about-vue-3-typescript-and-augmenting-types-for-use-with-plugins

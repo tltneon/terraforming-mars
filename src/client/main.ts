@@ -26,8 +26,8 @@ async function bootstrap() {
   Vue.use(i18nPlugin);
 
   Vue.directive('trim-whitespace', {
-    inserted: trimEmptyTextNodes,
-    componentUpdated: trimEmptyTextNodes,
+    mounted: trimEmptyTextNodes,
+    updated: trimEmptyTextNodes,
   });
 
   if (window.isSecureContext && 'serviceWorker' in navigator) {
