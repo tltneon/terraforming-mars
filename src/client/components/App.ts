@@ -26,34 +26,34 @@ import {hasShowModal, showModal, windowHasHTMLDialogElement} from './HTMLDialogE
 const dialogPolyfill = require('dialog-polyfill');
 
 export interface MainAppData {
-    screen: 'admin' |
-            'create-game-form' |
-            'cards' |
-            'empty' |
-            'game-home' |
-            'games-overview' |
-            'help' |
-            'load' |
-            'player-home' |
-            'spectator-home' |
-            'start-screen' |
-            'the-end';
-    /**
-     * player or spectator are set once the app component has loaded.
-     * Vue only watches properties that exist initially. When we
-     * use this property we can't trigger vue state without
-     * a refactor.
-     */
-    spectator?: SpectatorModel;
-    playerView?: PlayerViewModel;
-    // playerKey might seem to serve no function, but it's basically an arbitrary value used
-    // to force a rerender / refresh.
-    // See https://michaelnthiessen.com/force-re-render/
-    playerkey: number;
-    settings: typeof raw_settings;
-    isServerSideRequestInProgress: boolean;
-    componentsVisibility: {[x: string]: boolean};
-    game: SimpleGameModel | undefined;
+  screen: 'admin' |
+          'create-game-form' |
+          'cards' |
+          'empty' |
+          'game-home' |
+          'games-overview' |
+          'help' |
+          'load' |
+          'player-home' |
+          'spectator-home' |
+          'start-screen' |
+          'the-end';
+  /**
+   * player or spectator are set once the app component has loaded.
+   * Vue only watches properties that exist initially. When we
+   * use this property we can't trigger vue state without
+   * a refactor.
+   */
+  spectator?: SpectatorModel;
+  playerView?: PlayerViewModel;
+  // playerKey might seem to serve no function, but it's basically an arbitrary value used
+  // to force a rerender / refresh.
+  // See https://michaelnthiessen.com/force-re-render/
+  playerkey: number;
+  settings: typeof raw_settings;
+  isServerSideRequestInProgress: boolean;
+  componentsVisibility: {[x: string]: boolean};
+  game: SimpleGameModel | undefined;
 }
 
 const data: MainAppData = {

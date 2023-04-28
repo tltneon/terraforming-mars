@@ -1,7 +1,7 @@
-import Vue from 'vue';
+import Vue, {createApp} from 'vue';
 
 import {trimEmptyTextNodes} from '@/client/directives/TrimWhitespace';
-import {mainAppSettings} from '@/client/components/App';
+import App from '@/client/components/App.vue';
 import {getPreferences} from '@/client/utils/PreferencesManager';
 import i18nPlugin from '@/client/plugins/i18n.plugin';
 
@@ -38,8 +38,7 @@ async function bootstrap() {
     });
   }
 
-  new Vue(mainAppSettings);
+  createApp(App).mount('#app');
 }
 
 bootstrap();
-
